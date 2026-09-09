@@ -1,0 +1,25 @@
+@use '../../../../styles/mixins' as *;
+
+.club-card {
+  @include glass-effect;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  .club-image {
+    position: relative;
+    height: 150px;
+    background: var(--color-background-overlay);
+    img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+    app-badge { position: absolute; top: var(--space-3xs); right: var(--space-3xs); }
+    app-rating { position: absolute; bottom: var(--space-3xs); left: var(--space-3xs); }
+  }
+
+  .club-info { padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-xs); }
+  .name { color: var(--color-foreground-on-glass); font-size: var(--text-size-lg); font-weight: 600; }
+  .location, .members, .description { color: var(--color-foreground-muted); font-size: var(--text-size-sm); }
+
+  .specialties { display: flex; flex-wrap: wrap; gap: var(--space-3xs); }
+  .achievements { color: var(--color-foreground-muted); font-size: var(--text-size-sm); }
+}

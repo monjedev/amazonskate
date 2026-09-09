@@ -1,0 +1,52 @@
+<section class="hero">
+  <h1>Explora el <span class="highlight">Amazonas Digital</span></h1>
+  <p>
+    Sumérgete en la experiencia más avanzada de gestión deportiva. Conecta con la naturaleza digital
+    mientras administras clubes de patinaje.
+  </p>
+  <div class="hero-actions">
+    <app-btn color="primary" size="medium">Comenzar Expedición</app-btn>
+    <app-btn color="secondary" size="medium">Explorar Demo</app-btn>
+    <app-btn color="accent" style="outline" size="medium" >Explorar Demo</app-btn>
+    <app-btn color="accent" style="ghost" size="medium" >Explorar Demo</app-btn>
+  </div>
+</section>
+
+<section class="stats">
+  @for (stat of stats(); track stat.label) {
+    <div class="stat-card">
+      <span class="stat-icon">{{ stat.icon }}</span>
+      <span class="stat-value">{{ stat.value }}</span>
+      <span class="stat-label">{{ stat.label }}</span>
+    </div>
+  }
+</section>
+
+<section class="features">
+  <h2>Herramientas Evolutivas</h2>
+  <p>Descubre las capacidades que transformarán la gestión de tu club de patinaje.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>Gestión de Atletas</h3>
+      <p>Sistema completo para gestionar perfiles, rendimiento y progreso.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Competencias</h3>
+      <p>Organiza, programa y administra competencias con sistema de rankings.</p>
+    </div>
+  </div>
+</section>
+<section class="testimonials">
+  <h2>Lo que dicen nuestros usuarios</h2>
+  <div class="testimonial-cards">
+    @for (testimonial of testimonials(); track testimonial.name) {
+      <div class="testimonial-card">
+        <p class="testimonial-text">"{{ testimonial.quote }}"</p>
+        <div class="testimonial-author">
+          <span class="author-name">{{ testimonial.name }}</span>
+          <span class="author-role">{{ testimonial.role }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>

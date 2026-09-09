@@ -1,0 +1,13 @@
+<div class="rating-wrapper">
+  @for (star of [1, 2, 3, 4, 5]; track star) {
+    <span
+      class="star"
+      [class.filled]="star <= (hoverValue() || value())"
+      (mouseenter)="hoverValue.set(star)"
+      (mouseleave)="hoverValue.set(0)"
+      (click)="rate(star)"
+    >
+      ★
+    </span>
+  }
+</div>

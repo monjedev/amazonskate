@@ -1,0 +1,38 @@
+<div class="dashboard">
+  <header class="header">
+    <h1>Coach Profesional</h1>
+    <p>Gestiona tus entrenamientos y atletas</p>
+  </header>
+
+  <div class="stats-grid">
+    @for (kpi of kpis; track kpi.label) {
+      <app-stat-card [kpi]="kpi" />
+    }
+  </div>
+
+  <div class="panels">
+    <section class="panel">
+      <h3>Programa de Entrenamientos</h3>
+      <div class="list">
+        @for (session of schedule; track session.day) {
+          <div class="item">
+            <strong>{{ session.day }}</strong>
+            <small>{{ session.time }} · {{ session.type }}</small>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Objetivos del Grupo</h3>
+      <div class="objectives">
+        @for (objective of objectives; track objective.label) {
+          <div class="objective">
+            <span>{{ objective.label }}</span>
+            <span>{{ objective.value }}%</span>
+          </div>
+        }
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.rating-wrapper { display: inline-flex; gap: 2px; cursor: pointer; }
+
+.star {
+  color: var(--color-outline-input);
+  font-size: var(--text-size-lg);
+  transition: color var(--duration-fast) var(--easing-standard);
+
+  &.filled { color: var(--color-warning-500); }
+}

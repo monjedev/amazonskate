@@ -1,0 +1,22 @@
+@use '../../../../styles/mixins' as *;
+
+.dashboard {
+  padding: var(--space-xl);
+  .header {
+    margin-bottom: var(--space-lg);
+    h1 {
+      color: white;
+    }
+    p {
+      color: var(--color-foreground-muted);
+    }
+  }
+  .stats-grid {
+    @include grid-responsive();
+    margin-bottom: var(--space-xl);
+  }
+  .panel {
+    @include glass-effect;
+    padding: var(--space-lg);
+  }
+}

@@ -1,0 +1,58 @@
+@use '../../../../styles/mixins' as *;
+
+:host { display: inline-block; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xs);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+  border: 1px solid transparent;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline-focus);
+    outline-offset: 2px;
+  }
+
+  &.btn--sm { padding: var(--space-3xs) var(--space-sm); font-size: var(--text-size-xs); }
+  &.btn--md { padding: var(--space-sm) var(--space-md); font-size: var(--text-size-sm); }
+  &.btn--lg { padding: var(--space-md) var(--space-lg); font-size: var(--text-size-md); }
+
+  /* Variantes */
+  &.btn--primary { @include btn-primary; }
+  &.btn--dark { @include btn-dark; }
+
+  &.btn--outline {
+    background: transparent;
+    border-color: var(--color-outline-glass);
+    color: var(--color-foreground-on-glass);
+    &:hover:not(:disabled) { background: var(--color-background-input); }
+  }
+
+  &.btn--ghost {
+    background: transparent;
+    color: var(--color-foreground-on-glass);
+    &:hover:not(:disabled) { background: var(--color-background-input); }
+  }
+
+  /* Estados */
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-outline-glass);
+    border-top-color: var(--color-foreground-on-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

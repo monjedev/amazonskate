@@ -1,0 +1,23 @@
+<section class="page-header">
+  <h1>Tesoros de la <span class="highlight">Selva Digital</span></h1>
+  <p>Descubre artefactos legendarios, armas místicas y pociones sagradas.</p>
+  <app-search-bar (search)="onSearch($event)" placeholder="Buscar tesoros mágicos..." />
+</section>
+
+<div class="shop-layout">
+  <app-filter-bar [categories]="categories" (categoryChange)="onCategoryChange($event)" />
+
+  <section class="products-grid">
+    @for (product of filteredProducts(); track product.id) {
+      <app-product-card [product]="product" (buy)="onBuy($event)" />
+    } @empty {
+      <p>No se encontraron tesoros mágicos.</p>
+    }
+  </section>
+</div>
+
+@if (toastMessage()) {
+  <div class="toast-overlay">
+    <app-toast [message]="toastMessage()" [type]="toastType()" />
+  </div>
+}

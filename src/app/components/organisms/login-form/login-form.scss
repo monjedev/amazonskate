@@ -1,0 +1,104 @@
+@use '../../../../styles/mixins' as *;
+
+.login-container {
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  .login-card {
+    @include glass-effect;
+    background: var(--color-background-overlay);
+    padding: var(--space-xl);
+    text-align: center;
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin-bottom: var(--space-md);
+    }
+    h3 {
+      color: white;
+      
+      margin-bottom: var(--space-3xs);
+      font-size: var(--text-size-xl);
+    }
+    p {
+      color: var(--color-foreground-muted);
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-size-sm);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .forgot {
+      display: block;
+      margin-top: var(--space-md);
+      color: var(--color-foreground-muted);
+      text-decoration: none;
+      font-size: var(--text-size-sm);
+    }
+  }
+  .roles-section {
+    @include glass-effect;
+    background: var(--color-background-glass);
+    padding: var(--space-xl);
+    .roles-header {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+      .demo-badge {
+        background: var(--color-brand-300);
+        color: var(--color-brand-900);
+        padding: 2px 8px;
+        border-radius: var(--radius-full);
+        font-size: var(--text-size-xs);
+        font-weight: 600;
+      }
+      h4 {
+        color: white;
+        margin: var(--space-xs) 0;
+      }
+      p {
+        color: var(--color-foreground-muted);
+        margin: 0;
+        font-size: var(--text-size-sm);
+      }
+    }
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      .role-btn {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: var(--color-background-glass);
+        border: 1px solid var(--color-outline-glass);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+        cursor: pointer;
+        transition: all 0.2s;
+        width: 100%;
+        text-align: left;
+        &:hover {
+          background: var(--color-background-primary);
+          border-color: var(--color-background-primary);
+        }
+        .icon {
+          font-size: var(--text-size-xl);
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          strong {
+            color: white;
+          }
+          small {
+            color: var(--color-foreground-muted);
+          }
+        }
+      }
+    }
+  }
+}

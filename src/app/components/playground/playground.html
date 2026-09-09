@@ -1,0 +1,197 @@
+<div class="playground">
+  <h1>Amazonia Skate - Design System Playground</h1>
+
+  <section class="playground-section">
+    <h2>Átomos (Base)</h2>
+    <div class="row">
+      <app-btn color="primary" style="solid" size="small">Primary Solid</app-btn>
+            <app-btn color="primary" style="solid" size="medium">Primary Solid</app-btn>
+      <app-btn color="primary" style="solid" size="large">Primary Solid</app-btn>
+
+      <app-btn color="primary" style="outline">Primary Outline</app-btn>
+      <app-btn color="primary" style="ghost">Primary Ghost</app-btn>
+      <app-btn color="secondary" style="solid">Neutral Solid</app-btn>
+      <app-btn color="danger" style="soft">Info Soft</app-btn>
+      <app-btn color="success" style="solid">Negative Solid</app-btn>
+      <app-btn color="cta" style="outline">Positive Outline</app-btn>
+      <app-btn color="cta" style="solid">Dark Solid</app-btn>
+      <app-btn size="small">Small</app-btn>
+      <app-btn size="large">Large</app-btn>
+      <app-btn [loading]="true">Cargando...</app-btn>
+      <app-btn [disabled]="true">Deshabilitado</app-btn>
+      <app-btn (btnClick)="onButtonClick()">Click Me</app-btn>
+    </div>
+    <div class="row">
+      <app-input-field [label]="'Nombre'" placeholder="Tu nombre de guerra" />
+    </div>
+    <div class="row">
+      <app-input-field [type]="'password'" label="Contraseña" placeholder="••••••••" />
+    </div>
+    <div class="row">
+      <app-input-field [label]="'Email'" [error]="'Email inválido'" placeholder="tu@email.com" />
+    </div>
+    <div classs="row">
+      <app-input-field [label]="'Deshabilitado'" [disabled]="true" placeholder="No editable" />
+    </div>
+
+    <div class="row">
+      <app-badge [label]="'Secondary'" variant="secondary"/>
+      <app-badge [label]="'Primary'" variant="primary" />
+      <app-badge [label]="'Success'" variant="success" />
+      <app-badge [label]="'Danger'" variant="danger" />
+      <app-badge [label]="'Warning'" variant="warning" />
+      <app-tag [label]="'Velocidad'" [active]="true" />
+      <app-tag [label]="'Removable'" [removable]="true" />
+      <app-spinner [size]="24" />
+    </div>
+  </section>
+
+  <section class="playground-section">
+    <h2>Átomos Avanzados (Display & Feedback)</h2>
+    <div class="row">
+      <app-avatar [initials]="'MG'" [size]="'lg'" />
+      <app-avatar [src]="'assets/avatars/maria.jpg'" [size]="'lg'" />
+      <app-progress-bar [valueProgressBar]="75" [showLabel]="true" />
+      <app-rating [value]="4.5" />
+      <app-price-display [price]="4500" [originalPrice]="5200" currency="$" />
+      <app-slider [value]="sliderValue()" (valueChange)="onSliderChange($event)" />
+      <app-stepper [steps]="steps" [currentStep]="currentStep()" />
+      <app-tooltip [message]="'Esto es un tooltip'">Hover me</app-tooltip>
+      <app-popover [position]="'bottom'">
+        <ng-container trigger>Click me</ng-container>
+        <ng-container content>Contenido del popover</ng-container>
+      </app-popover>
+    </div>
+  </section>
+
+  <section class="playground-section">
+    <h2>Moléculas</h2>
+    <h3>FormField & SearchBar</h3>
+    <div class="row">
+      <app-form-field [label]="'Email'" [error]="''">
+        <app-input-field [type]="'email'" placeholder="tu@email.com" />
+      </app-form-field>
+      <app-search-bar [placeholder]="'Buscar tesoros mágicos...'" (search)="onSearch($event)" />
+    </div>
+
+    <h3>ProductCards (Mocks)</h3>
+    <div class="grid-3">
+      @for (product of [products[0], products[2], products[3]]; track product.id) {
+        <app-product-card [product]="product" (buy)="onBuy($event)" />
+      }
+    </div>
+
+    <h3>UserCards (Mocks)</h3>
+    <div class="grid-3">
+      @for (athlete of [athletes[0], athletes[1], athletes[3]]; track athlete.id) {
+        <app-user-card [user]="athlete" (profile)="onProfile($event)" />
+      }
+    </div>
+
+    <h3>StatCards (Mocks)</h3>
+    <div class="grid-3">
+      @for (kpi of managerKpis; track kpi.label) {
+        <app-stat-card [kpi]="kpi" />
+      }
+    </div>
+
+    <h3>Navegación y Datos</h3>
+    <div class="row">
+      <app-nav-item [label]="'Inicio'" [icon]="'🌿'" [active]="true" />
+      <app-nav-item [label]="'Clubes'" />
+      <app-tabs [tabs]="['Atletas', 'Entrenamientos', 'Eventos']" (tabChange)="onTabChange($event)" />
+      <app-dropdown [items]="[{label: 'Editar'}, {label: 'Eliminar'}]" (selected)="onSelect($event)" />
+      <app-breadcrumb [crumbs]="[{label: 'Inicio', url: '/'}, {label: 'Tienda'}]" />
+      <app-pagination [currentPage]="1" [totalPages]="5" (pageChange)="onPageChange($event)" />
+    </div>
+
+    <h3>Feedback & Overlays</h3>
+    <div class="row">
+      <app-toast [title]="'¡Éxito!'" [message]="'Operación completada'" [type]="'success'" />
+      <app-btn color="primary" style="solid" (btnClick)="isModalOpen.set(true)">Abrir Modal</app-btn>
+      <app-modal [title]="'Confirmar acción'" [isOpen]="isModalOpen()" (closed)="onModalClose()">Contenido del modal</app-modal>
+
+      <app-btn color="primary" style="outline" (btnClick)="isDrawerOpen.set(true)">Abrir Drawer</app-btn>
+      <app-drawer [isOpen]="isDrawerOpen()" [position]="'right'" (closed)="onDrawerClose()">Contenido del drawer</app-drawer>
+    </div>
+  </section>
+
+  <section class="playground-section">
+    <h2>Organismos</h2>
+    <h3>Navbar y Footer</h3>
+    <app-nav-bar />
+    <app-footer-component />
+
+    <h3>FilterBar (Con categorías de la Tienda)</h3>
+    <app-filter-bar [categories]="shopCategories" (categoryChange)="onCategoryChange($event)" />
+
+    <h3>DataTable (Con atletas del club)</h3>
+    <app-data-table [columns]="athleteColumns" [data]="clubAthletes" (rowAction)="onRowAction($event)" />
+
+    <h3>Formularios (Login y Contacto)</h3>
+    <div class="split">
+      <app-login-form />
+      <app-contact-form />
+    </div>
+  </section>
+
+  <section class="playground-page">
+    <h2>Páginas (Instancia única por contexto)</h2>
+    <h3>Landing</h3>
+    <app-landing-page />
+
+    <h3>Tienda</h3>
+    <app-shop-page />
+
+    <h3>Atletas</h3>
+    <app-athletes-page />
+
+    <h3>Eventos</h3>
+    <app-events-page />
+
+    <h3>Clubes</h3>
+    <app-clubs-page />
+
+    <h3>Contacto</h3>
+    <app-contact-page />
+
+    <h3>Dashboards (Atleta, Coach, Manager, Admin)</h3>
+    <app-athlete-dashboard />
+    <app-coach-dashboard />
+    <app-manager-dashboard />
+    <app-admin-dashboard />
+  </section>
+
+  <section class="playground-section">
+    <h2>Plantillas / Grids (Capas de layout)</h2>
+    <h3>Grid Responsive (3 columnas a 1 columna en móvil)</h3>
+    <div class="grid-responsive">
+      @for (product of products; track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+
+    <h3>Stacked Actions (Botones apilados en móvil, fila en desktop)</h3>
+    <div class="stacked-actions">
+      <app-btn color="primary" style="solid">Comenzar Expedición</app-btn>
+      <app-btn color="secondary" style="outline">Explorar Demo</app-btn>
+    </div>
+
+    <h3>Layout de Sidebar (Tienda)</h3>
+    <div class="sidebar-layout">
+      <div class="sidebar">
+        <h4>Filtros</h4>
+        <app-nav-item [label]="'Todos'" [active]="true" />
+        <app-nav-item [label]="'Patines'" />
+      </div>
+      <div class="main-content">
+        <p>Contenido principal con Grid Responsive</p>
+        <div class="grid-responsive">
+          @for (product of products.slice(0, 3); track product.id) {
+            <app-product-card [product]="product" />
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

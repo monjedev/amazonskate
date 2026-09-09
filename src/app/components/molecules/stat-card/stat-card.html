@@ -1,0 +1,9 @@
+<div class="stat-card">
+  <div class="header">
+    <span class="label">{{ kpi().label }}</span>
+    <span class="icon">{{ kpi().icon }}</span>
+  </div>
+  <span class="value">{{ kpi().value }}</span>
+  <span class="subtext">{{ kpi().subText }}</span>
+  <app-progress-bar [valueProgressBar]="kpi().progress" />
+</div>

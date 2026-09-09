@@ -1,0 +1,111 @@
+@use '../../../../styles/mixins' as *;
+
+.btn {
+  @include btn-base;
+
+  /* Tamaños */
+  &.btn--small {
+    padding: var(--space-3xs) var(--space-sm);
+    font-size: var(--text-size-xs);
+  }
+  &.btn--medium {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-size-sm);
+  }
+  &.btn--large {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-size-md);
+  }
+
+  /* Matriz de Colores y Estilos */
+  &.btn--primary {
+    &.style--solid {
+      @include btn-variant('primary', 'solid');
+    }
+    &.style--soft {
+      @include btn-variant('primary', 'soft');
+    }
+    &.style--outline {
+      @include btn-variant('primary', 'outline');
+    }
+    &.style--ghost {
+      @include btn-variant('primary', 'ghost');
+    }
+  }
+  &.btn--secondary {
+    &.style--solid {
+      @include btn-variant('secondary', 'solid');
+    }
+    &.style--soft {
+      @include btn-variant('secondary', 'soft');
+    }
+    &.style--outline {
+      @include btn-variant('secondary', 'outline');
+    }
+    &.style--ghost {
+      @include btn-variant('secondary', 'ghost');
+    }
+  }
+  &.btn--accent {
+    &.style--solid {
+      @include btn-variant('accent', 'solid');
+    }
+    &.style--soft {
+      @include btn-variant('accent', 'soft');
+    }
+    &.style--outline {
+      @include btn-variant('accent', 'outline');
+    }
+    &.style--ghost {
+      @include btn-variant('accent', 'ghost');
+    }
+  }
+  &.btn--danger {
+    &.style--solid {
+      @include btn-variant('danger', 'solid');
+    }
+    &.style--soft {
+      @include btn-variant('danger', 'soft');
+    }
+    &.style--outline {
+      @include btn-variant('danger', 'outline');
+    }
+    &.style--ghost {
+      @include btn-variant('danger', 'ghost');
+    }
+  }
+  &.btn--success {
+    &.style--solid {
+      @include btn-variant('success', 'solid');
+    }
+    &.style--soft {
+      @include btn-variant('success', 'soft');
+    }
+    &.style--outline {
+      @include btn-variant('success', 'outline');
+    }
+    &.style--ghost {
+      @include btn-variant('success', 'ghost');
+    }
+  }
+  &.btn--cta {
+    &.style--solid {
+      @include btn-variant('cta', 'solid');
+    }
+    &.style--soft {
+      @include btn-variant('cta', 'soft');
+    }
+    &.style--outline {
+      @include btn-variant('cta', 'outline');
+    }
+    &.style--ghost {
+      @include btn-variant('cta', 'ghost');
+    }
+  }
+
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

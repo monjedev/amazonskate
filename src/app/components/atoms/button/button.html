@@ -1,0 +1,12 @@
+<button
+  [type]="type()"
+  [class]="'btn btn--' + color() + ' style--' + style() + ' btn--' + size()"
+  [disabled]="disabled() || loading()"
+  (click)="handleClick($event)"
+>
+  @if (loading()) {
+   <app-spinner [size]="24"></app-spinner>
+  } @else {
+    <ng-content />
+  }
+</button>

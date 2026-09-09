@@ -1,0 +1,22 @@
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80vw;
+  max-width: 400px;
+  background: var(--color-brand-900);
+  border-left: 1px solid var(--color-outline-glass);
+  box-shadow: var(--elevation-4);
+  z-index: 1000;
+  padding: var(--space-lg);
+
+  &.drawer--left { left: 0; border-right: 1px solid var(--color-outline-glass); }
+  &.drawer--right { right: 0; border-left: 1px solid var(--color-outline-glass); }
+}

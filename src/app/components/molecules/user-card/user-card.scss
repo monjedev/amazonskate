@@ -1,0 +1,29 @@
+@use '../../../../styles/mixins' as *;
+
+.user-card {
+  @include glass-effect;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xs);
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--color-outline-focus);
+  }
+
+  .name { color: var(--color-foreground-on-glass); font-size: var(--text-size-lg); font-weight: 600; }
+  .nickname { color: var(--color-secondary); font-style: italic; margin-top: -8px; }
+
+  .meta { display: flex; gap: var(--space-xs); align-items: center; }
+  .points { color: var(--color-foreground-muted); font-size: var(--text-size-sm); }
+
+  .description { color: var(--color-foreground-muted); font-size: var(--text-size-sm); line-height: 1.5; }
+  .location { color: var(--color-foreground-muted); font-size: var(--text-size-xs); margin-bottom: var(--space-sm); }
+}

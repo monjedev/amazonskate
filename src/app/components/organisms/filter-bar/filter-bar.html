@@ -1,0 +1,38 @@
+<div class="sidebar">
+  <div class="filter-section">
+    <h4 class="title">🌀 Categorías Místicas</h4>
+    <div class="items">
+      @for (cat of categories(); track cat.id) {
+        <button
+          class="filter-item"
+          [class.active]="selectedCategory() === cat.id"
+          (click)="selectCategory(cat.id)"
+        >
+          <span>{{ cat.icon }} {{ cat.label }}</span>
+          <span class="count">{{ cat.count }}</span>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h4 class="title">🔽 Rango de Tesoros</h4>
+    <div class="items">
+      @for (range of priceRanges; track range.id) {
+        <label class="filter-checkbox">
+          <input type="checkbox" [value]="range.label" />
+          <span>{{ range.label }}</span>
+        </label>
+      }
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h4 class="title">🔨 Forjadores Legendarios</h4>
+    <div class="items">
+      @for (forger of forgers; track forger.id) {
+        <button class="filter-item">{{ forger.name }}</button>
+      }
+    </div>
+  </div>
+</div>

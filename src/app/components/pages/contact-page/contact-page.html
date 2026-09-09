@@ -1,0 +1,32 @@
+<section class="hero">
+  <h1>Conecta con los <span class="highlight">Guías Amazónicos</span></h1>
+  <p>
+    ¿Necesitas orientación en tu expedición digital? Nuestros chamanes tecnológicos están aquí para
+    guiarte.
+  </p>
+</section>
+
+<div class="layout">
+  <div class="sidebar">
+    @for (item of info; track item.label) {
+      <div class="info-card">
+        <h4>{{ item.label }}</h4>
+        <p>{{ item.value }}</p>
+        <small>{{ item.subLabel }}</small>
+      </div>
+    }
+  </div>
+
+  <div class="content">
+    <app-contact-form />
+  </div>
+</div>
+
+<section class="faq">
+  <h3>Sabiduría Ancestral (FAQ)</h3>
+  @for (faq of faqs; track faq.id) {
+    <details>
+      <summary>{{ faq.question }}</summary>
+    </details>
+  }
+</section>

@@ -1,0 +1,7 @@
+@use '../../../../styles/mixins' as *;
+
+.hero { @include dark-overlay; @include bg-jungle; text-align: center; padding: var(--space-2xl) var(--space-xl); margin-bottom: var(--space-xl);
+  h1 { color: white; font-size: var(--text-size-hero); .highlight { color: var(--color-brand-300); } }
+  p { color: var(--color-foreground-muted); }
+}
+.grid { @include grid-responsive(); padding: 0 var(--space-xl) var(--space-2xl); }

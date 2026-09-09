@@ -1,0 +1,55 @@
+@use '../../../../styles/mixins' as *;
+
+:host {
+  position: relative;
+  display: inline-block;
+}
+
+.popover-container {
+  position: relative;
+  
+}
+
+.popover-trigger {
+  display: inline-block;
+}
+
+.popover-panel {
+  @include glass-effect;
+
+  position: absolute;
+  z-index: 20;
+
+  background: var(--color-brand-900);
+  color: var(--color-neutral-0);
+
+  padding: var(--space-md);
+  width: 250px;
+
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-4);
+
+  &.top {
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.bottom {
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.left {
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.right {
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

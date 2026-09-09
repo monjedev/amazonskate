@@ -1,0 +1,55 @@
+<form class="contact-form" formGroup='form' (ngSubmit)="onSubmit()">
+  <h3>Envía una Señal de Humo Digital</h3>
+  <p>Nuestros chamanes tecnológicos responderán a tu llamada en menos de 24 horas.</p>
+
+  <div class="row">
+    <app-input-field
+      label="Nombre Tribal"
+      formControlName="tribalName"
+      placeholder="Tu nombre de guerra"
+    />
+    <app-input-field
+      label="Apellido de Clan"
+      formControlName="clanLastName"
+      placeholder="Tu linaje familiar"
+    />
+  </div>
+
+  <app-input-field
+    label="Señal Digital Principal"
+    formControlName="email"
+    type="email"
+    placeholder="tu@expedicion.com"
+  />
+  <app-input-field
+    label="Línea de Emergencia (opcional)"
+    formControlName="emergencyLine"
+    placeholder="+52 55 AMAZON"
+  />
+
+  <app-form-field label="Tipo de Consulta Tribal">
+    <select formControlName="consultationType" class="glass-input">
+      <option value="">Selecciona tu consulta...</option>
+      <option value="1">Alianza de Clanes</option>
+      <option value="2">Búsqueda de Tesoros</option>
+      <option value="3">Ritual Sagrado</option>
+    </select>
+  </app-form-field>
+
+  <app-form-field label="Mensaje Sagrado">
+    <textarea
+      formControlName="message"
+      class="glass-input textarea"
+      placeholder="Comparte tu consulta con nuestros guías amazónicos..."
+    ></textarea>
+  </app-form-field>
+
+  <app-checkbox-component
+    label="Quiero recibir sabiduría y actualizaciones de la tribu AmazoniaSkate"
+    formControlName="subscribe"
+  />
+
+  <app-btn color="cta" style="solid" type="submit" [loading]="false">
+    Enviar Señal de Humo
+  </app-btn>
+</form>

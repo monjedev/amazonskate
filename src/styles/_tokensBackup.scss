@@ -1,0 +1,97 @@
+/* =========================================
+   CAPA 1: PRIMITIVOS / BRAND
+   ========================================= */
+:root {
+  /* Colores de Marca (Selva) */
+  --color-brand-100: #e0f2f1;
+  --color-brand-300: #83c5be;
+  --color-brand-500: #2a9d8f;
+  --color-brand-600: #21867a;
+  --color-brand-700: #0a2b26;
+  --color-brand-900: #0a2e26;
+
+  /* Neutros */
+  --color-neutral-0: #ffffff;
+  --color-neutral-100: #f4f7f7;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-500: #64748b;
+  --color-neutral-700: #374151;
+  --color-neutral-900: #1f2937;
+
+  /* Semánticos de Estado */
+  --color-negative-500: #e63946;
+  --color-warning-500: #f4a261;
+  --color-info-500: #457b9d;
+  --color-positive-500: #2a9d8f;
+
+  /* Espaciado (Base 4px) */
+  --space-3xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Tipografía */
+  --text-size-xs: 0.75rem;
+  --text-size-sm: 0.875rem;
+  --text-size-md: 1rem;
+  --text-size-lg: 1.25rem;
+  --text-size-xl: 1.5rem;
+  --text-size-hero: clamp(32px, 8vw, 56px);
+
+  --text-weight-regular: 400;
+  --text-weight-medium: 500;
+  --text-weight-semibold: 600;
+  --text-weight-bold: 700;
+  /* Movimiento */
+  --duration-fast: 150ms;
+  --duration-medium: 300ms;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   CAPA 2: SEMÁNTICOS / FUNCIONALES
+   ========================================= */
+:root {
+  /* Superficies y Fondo */
+  --color-background-surface: var(--color-neutral-100);
+  --color-background-overlay: rgba(10, 43, 38, 0.8); /* Fondo del menú móvil */
+
+  /* Botón Primario */
+  --color-background-primary: var(--color-brand-500);
+  --color-foreground-on-primary: var(--color-neutral-0);
+  --color-outline-primary: var(--color-brand-500);
+
+  /* Texto y Contenido */
+  --color-foreground-primary: var(--color-neutral-900);
+  --color-foreground-muted: #64748b;
+  --color-foreground-negative: var(--color-negative-500);
+
+  /* Glassmorphism (Tarjetas y Paneles) */
+  --color-background-glass: rgba(255, 255, 255, 0.08);
+  --color-foreground-on-glass: var(--color-neutral-0);
+  --color-outline-glass: rgba(255, 255, 255, 0.15);
+
+  /* Inputs */
+  --color-background-input: rgba(255, 255, 255, 0.1);
+  --color-foreground-input: var(--color-neutral-0);
+  --color-outline-input: rgba(255, 255, 255, 0.2);
+  --color-outline-focus: var(--color-brand-300);
+}
+
+/* Modo Oscuro (si el usuario lo activa, solo cambia esta capa) */
+[data-theme='dark'] {
+  --color-background-surface: #123b38;
+  --color-background-primary: var(--color-brand-300);
+  --color-foreground-on-primary: var(--color-brand-900);
+  --color-foreground-primary: var(--color-neutral-0);
+  /* ... etc */
+}

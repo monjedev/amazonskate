@@ -1,0 +1,38 @@
+<div class="dashboard">
+  <header class="header">
+    <h1>Mi Progreso</h1>
+    <p>Sigue tu desarrollo como atleta</p>
+  </header>
+
+  <div class="stats-grid">
+    @for (kpi of kpis; track kpi.label) {
+      <app-stat-card [kpi]="kpi" />
+    }
+  </div>
+
+  <div class="panels">
+    <section class="panel">
+      <h3>Historial de Entrenamientos</h3>
+      <div class="list">
+        @for (session of sessions; track session.id) {
+          <div class="item">
+            <strong>{{ session.type }}</strong>
+            <small>{{ session.date }} · {{ session.duration }}</small>
+          </div>
+        }
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Mis Logros</h3>
+      <div class="list">
+        @for (achievement of achievements; track achievement.id) {
+          <div class="item">
+            <strong>🏆 {{ achievement.title }}</strong>
+            <small>{{ achievement.date }}</small>
+          </div>
+        }
+      </div>
+    </section>
+  </div>
+</div>

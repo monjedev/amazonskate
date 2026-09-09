@@ -1,0 +1,22 @@
+/* styles.scss */
+@use './styles/tokens';
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: var(--color-brand-900);
+  margin: 0;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(10, 43, 38, 0.7) 0%,
+      var(--color-background-overlay) 100%
+    ),
+    var(--asset-bg-jungle);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+ /* You can add global styles to this file, and also import other style files */

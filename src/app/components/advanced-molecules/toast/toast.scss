@@ -1,0 +1,33 @@
+@use '../../../../styles/mixins' as *;
+.toast {
+  @include glass-effect;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  min-width: 300px;
+  background: var(--color-brand-900);
+  border: 1px solid var(--color-outline-glass);
+
+  &--success { border-left: 4px solid var(--color-brand-500); }
+  &--error { border-left: 4px solid var(--color-negative-500); }
+  &--warning { border-left: 4px solid var(--color-warning-500); }
+
+  .toast-icon { font-size: var(--text-size-xl); }
+  .toast-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .toast-title { color: var(--color-foreground-on-glass); font-weight: 600; font-size: var(--text-size-md); }
+    .toast-message { color: var(--color-foreground-muted); font-size: var(--text-size-sm); }
+  }
+
+  .toast-close {
+    background: transparent;
+    border: none;
+    color: var(--color-foreground-muted);
+    cursor: pointer;
+    font-size: var(--text-size-md);
+  }
+}

@@ -1,0 +1,35 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  @for (crumb of crumbs(); track $index; let last = $last) {
+    @if (!last) {
+      <a
+        class="crumb-link"
+        [routerLink]="crumb.url"
+      >
+        @if (crumb.icon) {
+          <span class="crumb-icon" aria-hidden="true">
+            {{ crumb.icon }}
+          </span>
+        }
+
+        <span>{{ crumb.label }}</span>
+      </a>
+
+      <span class="separator" aria-hidden="true">
+        /
+      </span>
+    } @else {
+      <span
+        class="crumb-current"
+        aria-current="page"
+      >
+        @if (crumb.icon) {
+          <span class="crumb-icon" aria-hidden="true">
+            {{ crumb.icon }}
+          </span>
+        }
+
+        <span>{{ crumb.label }}</span>
+      </span>
+    }
+  }
+</nav>

@@ -1,0 +1,6 @@
+@if (isOpen()) {
+  <div class="drawer-overlay" (click)="close()"></div>
+  <div class="drawer-panel" [class]="'drawer--' + position()">
+    <ng-content />
+  </div>
+}

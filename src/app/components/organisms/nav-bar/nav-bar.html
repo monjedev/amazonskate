@@ -1,0 +1,69 @@
+<header class="navbar">
+  <!-- Nav Brand -->
+  <div class="nav-brand">
+    <img [src]="brand.logoUrl" />
+    <div class="nav-brand__text">
+      <strong>{{ brand.name }}</strong>
+      <span>{{ brand.subtitle }}</span>
+    </div>
+  </div>
+
+  <!-- Nav Links (Desktop) con routerLink -->
+  <nav class="nav-links">
+    @for (link of navLinks; track link.route) {
+      <a
+        [routerLink]="link.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.route === '/' }"
+        class="nav-link-button"
+      >
+        @if (link.icon) {
+          <span class="icon">{{ link.icon }}</span>
+        }
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+
+  <!-- Acciones (Login / Logout) -->
+  <div class="nav-actions">
+    @if (isAuthenticated()) {
+      <span class="role-badge">{{ currentRole()?.label }}</span>
+      <app-btn color="primary" style="solid" size="small" (btnClick)="logout()"> Salir </app-btn>
+    } @else {
+      <app-btn color="primary" style="solid" size="small" (btnClick)="goToLogin()">
+        Ingresar
+      </app-btn>
+    }
+  </div>
+
+  <!-- Hamburger (Mobile) -->
+  <button class="navbar__hamburger" (click)="toggleDrawer()" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Drawer Refactorizado con componente reutilizable -->
+<app-drawer [isOpen]="isDrawerOpen()" position='left' (closed)="closeDrawer()">
+  <div class="drawer-header">
+    <img [src]="brand.logoUrl" [alt]="brand.name" />
+    <button class="drawer-close" (click)="closeDrawer()">✕</button>
+  </div>
+  <nav class="drawer-links">
+    @for (link of navLinks; track link.route) {
+      <a href="#" (click)="navigateTo(link.route); $event.preventDefault()">
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+  <div class="drawer-footer">
+    @if (isAuthenticated()) {
+      <span class="role-badge">{{ currentRole()?.label }}</span>
+      <app-btn color="primary" style="solid" size="large" (btnClick)="logout()"> Salir </app-btn>
+    } @else {
+      <app-btn color="primary" style="solid" size="large" (btnClick)="goToLogin()">
+        Ingresar a la Plataforma
+      </app-btn>
+    }
+  </div>
+</app-drawer>

@@ -1,0 +1,24 @@
+<section class="page-header">
+  <h1>Aventuras Épicas de la <span class="highlight">Selva Digital</span></h1>
+  <p>Descubre competencias legendarias, rituales sagrados y expediciones épicas.</p>
+</section>
+
+<section class="featured-event">
+  <div class="event-banner">
+    <h2>Gran Torneo de la Selva Amazónica</h2>
+    <p>Campeonato Nacional de Velocidad 2024</p>
+    <div class="event-meta">📅 15-17 Marzo, 2024 · 📍 Ciudad de México</div>
+    <app-btn variant="primary">Unirse a la Batalla</app-btn>
+  </div>
+</section>
+
+<section class="events-grid">
+  @for (event of events(); track event.id) {
+    <div class="event-card">
+      <span class="status">{{ event.status }}</span>
+      <h3>{{ event.title }}</h3>
+      <p>📅 {{ event.date }} · 📍 {{ event.location }}</p>
+      <app-btn variant="outline" size="small">Ver Detalles</app-btn>
+    </div>
+  }
+</section>

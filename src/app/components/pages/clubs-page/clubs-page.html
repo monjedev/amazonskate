@@ -1,0 +1,13 @@
+<section class="hero">
+  <h1>Explora los <span class="highlight">Territorios del Patinaje</span></h1>
+  <p>
+    Descubre clubes únicos en cada rincón de la selva digital. Conecta con comunidades que comparten
+    tu pasión.
+  </p>
+</section>
+
+<section class="grid">
+  @for (club of clubs; track club.id) {
+    <app-club-card [club]="club" />
+  }
+</section>

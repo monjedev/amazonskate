@@ -1,0 +1,12 @@
+<div class="login-container">
+  <h1>Acceso a la Selva</h1>
+  <p>Ingresa tus credenciales para continuar tu aventura</p>
+
+  <app-login-form  (loginRole)="onLogin($event)" />
+</div>
+
+@if (toastMessage()) {
+  <div class="toast-overlay">
+    <app-toast [message]="toastMessage()" [type]="toastType()" />
+  </div>
+}

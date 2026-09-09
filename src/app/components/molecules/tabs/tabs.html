@@ -1,0 +1,9 @@
+<div class="tabs-container">
+  <div class="tabs-header">
+    @for (tab of tabs(); track $index) {
+      <button class="tab" [class.is-active]="$index === activeIndex()" (click)="selectTab($index)">
+        {{ tab }}
+      </button>
+    }
+  </div>
+</div>

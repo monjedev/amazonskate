@@ -1,0 +1,19 @@
+@use '../../../../styles/mixins' as *;
+
+.sidebar {
+  @include glass-effect;
+  padding: var(--space-lg);
+  height: fit-content;
+
+  .filter-section { margin-bottom: var(--space-xl);
+    .title { margin-bottom: var(--space-md); color: var(--color-foreground-on-glass); font-size: var(--text-size-md); }
+    .items { display: flex; flex-direction: column; gap: var(--space-xs);
+      .filter-item { display: flex; justify-content: space-between; align-items: center; width: 100%; background: transparent; border: none; color: var(--color-foreground-muted); padding: var(--space-sm) var(--space-xs); border-radius: var(--radius-sm); cursor: pointer; font-size: var(--text-size-sm); text-align: left;
+        &:hover { background: var(--color-background-glass); }
+        &.active { background: var(--color-background-primary); color: var(--color-foreground-on-primary); }
+        .count { font-size: var(--text-size-xs); background: var(--color-background-glass); padding: 2px 6px; border-radius: var(--radius-full); }
+      }
+      .filter-checkbox { display: flex; align-items: center; gap: var(--space-xs); color: var(--color-foreground-muted); font-size: var(--text-size-sm); cursor: pointer; }
+    }
+  }
+}

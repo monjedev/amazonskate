@@ -1,0 +1,54 @@
+@use '../../../../styles/mixins' as *;
+
+.dashboard {
+  padding: var(--space-xl) var(--space-2xl);
+  .header {
+    margin-bottom: var(--space-lg);
+    h1 {
+      color: white;
+      font-size: var(--text-size-xl);
+    }
+    p {
+      color: var(--color-foreground-muted);
+    }
+  }
+  .stats-grid {
+    @include grid-responsive();
+    margin-bottom: var(--space-xl);
+  }
+  .tabs {
+    display: flex;
+    gap: var(--space-3xs);
+    background: var(--color-background-glass);
+    border-radius: var(--radius-full);
+    padding: var(--space-3xs);
+    width: fit-content;
+    margin-bottom: var(--space-lg);
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--color-foreground-muted);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      &.active {
+        background: white;
+        color: var(--color-brand-900);
+        font-weight: 600;
+      }
+    }
+  }
+  .panel {
+    @include glass-effect;
+    padding: var(--space-lg);
+    margin-top: var(--space-lg);
+    h3 {
+      color: white;
+      margin-bottom: var(--space-3xs);
+    }
+    p {
+      color: var(--color-foreground-muted);
+      margin-bottom: var(--space-md);
+    }
+  }
+}

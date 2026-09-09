@@ -1,0 +1,14 @@
+@use '../../../../styles/mixins' as *;
+
+.dashboard { padding: var(--space-xl);
+  .header { margin-bottom: var(--space-lg); h1 { color: white; } p { color: var(--color-foreground-muted); } }
+  .stats-grid { @include grid-responsive(); margin-bottom: var(--space-xl); }
+  .panels { display: grid; grid-template-columns: 1fr; gap: var(--space-lg);
+    @media (min-width: 900px) { grid-template-columns: 1fr 1fr; }
+    .panel { @include glass-effect; padding: var(--space-lg);
+      h3 { color: white; margin-bottom: var(--space-md); }
+      .list { .item { background: var(--color-background-input); padding: var(--space-sm); border-radius: var(--radius-md); margin-bottom: var(--space-xs); display: flex; justify-content: space-between; color: white; small { color: var(--color-foreground-muted); } } }
+      .objectives { .objective { display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-outline-glass); padding: var(--space-sm) 0; color: white; } }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.hero {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+
+  h1 {
+    font-size: var(--text-size-hero);
+    color: var(--color-foreground-on-glass);
+  }
+  .highlight {
+    color: var(--color-brand-300);
+  }
+  p {
+    color: var(--color-foreground-muted);
+    max-width: 600px;
+    margin: 0 auto var(--space-lg);
+  }
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+
+  .stat-card {
+    @include glass-effect;
+    text-align: center;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+
+    .stat-icon {
+      font-size: var(--text-size-xl);
+    }
+    .stat-value {
+      font-size: var(--text-size-2xl);
+      font-weight: 700;
+      color: var(--color-foreground-on-glass);
+    }
+    .stat-label {
+      color: var(--color-foreground-muted);
+      font-size: var(--text-size-sm);
+    }
+  }
+}
+
+.features {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+
+  h2 {
+    color: var(--color-foreground-on-glass);
+  }
+  p {
+    color: var(--color-foreground-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+    text-align: left;
+
+    .feature-card {
+      @include glass-effect;
+      padding: var(--space-lg);
+      h3 {
+        color: var(--color-foreground-on-glass);
+      }
+      p {
+        color: var(--color-foreground-muted);
+      }
+    }
+  }
+}
+.testimonials {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+
+  h2 {
+    color: var(--color-foreground-on-glass);
+  }
+  p {
+    color: var(--color-foreground-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .testimonial-card {
+    @include glass-effect;
+    padding: var(--space-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+
+    .testimonial-quote {
+      color: var(--color-foreground-on-glass);
+    }
+    .testimonial-author {
+      color: var(--color-foreground-muted);
+      margin-top: var(--space-xs);
+    }
+  }
+}

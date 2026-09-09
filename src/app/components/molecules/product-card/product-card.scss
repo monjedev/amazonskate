@@ -1,0 +1,36 @@
+@use '../../../../styles/mixins' as *;
+
+.product-card {
+  @include glass-effect;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+
+  .product-image {
+    position: relative;
+    height: 200px;
+    border-radius: var(--radius-md);
+    background: var(--color-background-overlay);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space-3xs);
+    padding: var(--space-3xs);
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+
+    .category { color: var(--color-foreground-muted); font-size: var(--text-size-xs); text-transform: uppercase; }
+    .title { color: var(--color-foreground-on-glass); font-size: var(--text-size-lg); font-weight: 600; }
+    .brand { color: var(--color-foreground-muted); font-size: var(--text-size-sm); }
+
+    .rating { color: var(--color-warning-500); font-size: var(--text-size-sm); }
+    .description { color: var(--color-foreground-on-glass); font-size: var(--text-size-sm); }
+  }
+}

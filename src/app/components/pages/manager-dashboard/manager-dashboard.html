@@ -1,0 +1,25 @@
+<div class="dashboard">
+  <header class="header">
+    <h1>Mi Club</h1>
+    <p>Gestiona tu club y atletas</p>
+  </header>
+
+  <div class="stats-grid">
+    @for (kpi of kpis; track kpi.label) {
+      <app-stat-card [kpi]="kpi" />
+    }
+  </div>
+
+  <div class="panel">
+    <app-tabs
+      [tabs]="['Atletas', 'Entrenamientos', 'Eventos']"
+      (tabChange)="
+        activeTab.set($event === 0 ? 'Atletas' : $event === 1 ? 'Entrenamientos' : 'Eventos')
+      "
+    />
+
+    @if (activeTab() === 'Atletas') {
+      <app-data-table [columns]="columns" [data]="athletes" />
+    }
+  </div>
+</div>

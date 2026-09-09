@@ -1,0 +1,12 @@
+<div class="stepper">
+  @for (step of steps(); track $index) {
+    <div
+      class="step"
+      [class.is-active]="$index === currentStep()"
+      [class.is-complete]="$index < currentStep()"
+    >
+      <span class="step-indicator">{{ $index < currentStep() ? '✓' : $index + 1 }}</span>
+      <span class="step-label">{{ step }}</span>
+    </div>
+  }
+</div>

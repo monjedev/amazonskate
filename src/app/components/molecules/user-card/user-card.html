@@ -1,0 +1,46 @@
+<div class="user-card">
+
+  <div
+    class="avatar"
+    [style.background-image]="'url(' + user().avatar + ')'"
+  ></div>
+  <app-avatar [src]="'assets/avatars/maria.jpg'" [size]="'lg'" />
+  <app-avatar [initials]="'MG'" [size]="'md'" />
+
+
+  <h4 class="name">
+    {{ user().name }}
+  </h4>
+
+  <p class="nickname">
+    "{{ user().nickname }}"
+  </p>
+
+  <div class="meta">
+    <app-badge
+      [label]="user().category"
+      [variant]="user().category === 'Elite' ? 'primary' : 'neutral'"
+    />
+
+    <span class="points">
+      {{ user().points }} pts
+    </span>
+  </div>
+
+  <p class="description">
+    {{ user().description }}
+  </p>
+
+  <div class="location">
+    📍 {{ user().location }}
+  </div>
+
+  <app-btn
+    variant="outline"
+    size='small'
+    (btnClick)="exploreProfile()"
+  >
+    Explorar Perfil
+  </app-btn>
+
+</div>

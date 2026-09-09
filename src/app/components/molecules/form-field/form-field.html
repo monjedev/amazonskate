@@ -1,0 +1,14 @@
+<div class="form-field">
+  @if (label()) {
+    <label class="form-field__label">{{ label() }}</label>
+  }
+
+  <!-- Proyección del input -->
+  <ng-content />
+
+  @if (error()) {
+    <small class="form-field__error">{{ error() }}</small>
+  } @else if (hint()) {
+    <small class="form-field__hint">{{ hint() }}</small>
+  }
+</div>

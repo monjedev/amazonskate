@@ -1,0 +1,301 @@
+[
+  {
+    "id": "atom/button",
+    "category": "atom",
+    "type": "interactive",
+    "variants": ["solid", "soft", "outline", "ghost"],
+    "colors": ["primary", "secondary", "accent", "danger", "success", "cta"],
+    "states": ["default", "hover", "disabled", "loading"]
+  },
+  {
+    "id": "atom/input",
+    "category": "atom",
+    "type": "input",
+    "variants": ["text", "email", "password"],
+    "states": ["default", "focus", "error", "disabled"]
+  },
+  {
+    "id": "atom/badge",
+    "category": "atom",
+    "type": "display",
+    "variants": ["neutral", "primary", "success", "danger", "warning"]
+  },
+  {
+    "id": "atom/checkbox",
+    "category": "atom",
+    "type": "input",
+    "states": ["default", "checked", "disabled", "focus"]
+  },
+  {
+    "id": "atom/radio",
+    "category": "atom",
+    "type": "input",
+    "states": ["default", "checked", "disabled"]
+  },
+  {
+    "id": "atom/tooltip",
+    "category": "atom",
+    "type": "display",
+    "variants": ["top", "bottom", "left", "right"],
+    "triggers": ["hover", "click"]
+  },
+  {
+    "id": "atom/popover",
+    "category": "atom",
+    "type": "display",
+    "variants": ["top", "bottom", "left", "right"]
+  },
+  {
+    "id": "atom/slider",
+    "category": "atom",
+    "type": "input",
+    "properties": ["min", "max", "step", "value"]
+  },
+  {
+    "id": "atom/stepper",
+    "category": "atom",
+    "type": "display",
+    "states": ["inactive", "active", "complete"]
+  },
+  {
+    "id": "atom/price-display",
+    "category": "atom",
+    "type": "display",
+    "properties": ["price", "originalPrice", "currency", "discount"]
+  },
+  {
+    "id": "atom/rating",
+    "category": "atom",
+    "type": "input",
+    "states": ["filled", "empty", "hover", "readonly"]
+  },
+  {
+    "id": "atom/progress-bar",
+    "category": "atom",
+    "type": "display",
+    "states": ["determinate", "indeterminate"]
+  },
+  {
+    "id": "atom/avatar",
+    "category": "atom",
+    "type": "display",
+    "types": ["image", "initials"],
+    "sizes": ["sm", "md", "lg"]
+  },
+  {
+    "id": "atom/tag",
+    "category": "atom",
+    "type": "display",
+    "variants": ["neutral", "brand", "danger"],
+    "removable": true
+  },
+  {
+    "id": "atom/loader",
+    "category": "atom",
+    "type": "display",
+    "variants": ["spinner", "skeleton"]
+  },
+  { "id": "atom/icon", "category": "atom", "type": "display" },
+  {
+    "id": "molecule/form-field",
+    "category": "molecule",
+    "type": "input",
+    "depends_on": ["atom/input"]
+  },
+  {
+    "id": "molecule/search-bar",
+    "category": "molecule",
+    "type": "input",
+    "depends_on": ["atom/input", "atom/icon"]
+  },
+  {
+    "id": "molecule/product-card",
+    "category": "molecule",
+    "type": "container",
+    "depends_on": ["atom/badge", "atom/price-display", "atom/rating", "atom/button"]
+  },
+  {
+    "id": "molecule/user-card",
+    "category": "molecule",
+    "type": "container",
+    "depends_on": ["atom/avatar", "atom/badge", "atom/button"]
+  },
+  {
+    "id": "molecule/club-card",
+    "category": "molecule",
+    "type": "container",
+    "depends_on": ["atom/rating", "atom/tag", "atom/button"]
+  },
+  {
+    "id": "molecule/event-card",
+    "category": "molecule",
+    "type": "container",
+    "depends_on": ["atom/badge", "atom/button"]
+  },
+  {
+    "id": "molecule/stat-card",
+    "category": "molecule",
+    "type": "display",
+    "depends_on": ["atom/icon", "atom/progress-bar"]
+  },
+  {
+    "id": "molecule/nav-item",
+    "category": "molecule",
+    "type": "interactive",
+    "depends_on": ["atom/icon"]
+  },
+  {
+    "id": "molecule/tabs",
+    "category": "molecule",
+    "type": "interactive",
+    "states": ["active", "inactive"]
+  },
+  {
+    "id": "molecule/toast",
+    "category": "molecule",
+    "type": "display",
+    "variants": ["info", "success", "warning", "error"]
+  },
+  {
+    "id": "molecule/modal",
+    "category": "molecule",
+    "type": "container",
+    "states": ["open", "closed"]
+  },
+  {
+    "id": "molecule/drawer",
+    "category": "molecule",
+    "type": "container",
+    "variants": ["left", "right"]
+  },
+  { "id": "molecule/dropdown", "category": "molecule", "type": "interactive" },
+  { "id": "molecule/breadcrumb", "category": "molecule", "type": "display" },
+  {
+    "id": "molecule/pagination",
+    "category": "molecule",
+    "type": "interactive",
+    "states": ["active", "disabled"]
+  },
+  {
+    "id": "molecule/alert",
+    "category": "molecule",
+    "type": "display",
+    "variants": ["info", "success", "warning", "error"]
+  },
+  {
+    "id": "molecule/list-item",
+    "category": "molecule",
+    "type": "container",
+    "depends_on": ["atom/avatar", "atom/badge"]
+  },
+  {
+    "id": "molecule/empty-state",
+    "category": "molecule",
+    "type": "display",
+    "depends_on": ["atom/icon", "atom/button"]
+  },
+  {
+    "id": "organism/navbar",
+    "category": "organism",
+    "type": "layout",
+    "depends_on": ["molecule/nav-item", "atom/button", "molecule/drawer"]
+  },
+  {
+    "id": "organism/footer",
+    "category": "organism",
+    "type": "layout",
+    "depends_on": ["atom/input", "atom/button", "atom/icon"]
+  },
+  {
+    "id": "organism/filter-bar",
+    "category": "organism",
+    "type": "input",
+    "depends_on": ["atom/tag", "atom/checkbox"]
+  },
+  {
+    "id": "organism/data-table",
+    "category": "organism",
+    "type": "display",
+    "depends_on": ["atom/button", "atom/badge"]
+  },
+  {
+    "id": "organism/login-form",
+    "category": "organism",
+    "type": "form",
+    "depends_on": ["molecule/form-field", "atom/button"]
+  },
+  {
+    "id": "organism/signal-form",
+    "category": "organism",
+    "type": "form",
+    "depends_on": ["molecule/form-field", "atom/checkbox", "atom/button"]
+  },
+  { "id": "organism/faq-accordion", "category": "organism", "type": "container" },
+  { "id": "organism/map-card", "category": "organism", "type": "display" },
+  {
+    "id": "page/landing",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/navbar", "organism/footer", "molecule/stat-card"]
+  },
+  {
+    "id": "page/shop",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/filter-bar", "molecule/product-card"]
+  },
+  {
+    "id": "page/athletes",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/filter-bar", "molecule/user-card"]
+  },
+  {
+    "id": "page/events",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/filter-bar", "molecule/event-card"]
+  },
+  {
+    "id": "page/clubs",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/filter-bar", "molecule/club-card"]
+  },
+  {
+    "id": "page/contact",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/signal-form", "organism/faq-accordion"]
+  },
+  {
+    "id": "page/login",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["organism/login-form"]
+  },
+  {
+    "id": "page/athlete-dashboard",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["molecule/stat-card", "molecule/list-item"]
+  },
+  {
+    "id": "page/coach-dashboard",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["molecule/stat-card", "molecule/list-item"]
+  },
+  {
+    "id": "page/club-dashboard",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["molecule/stat-card", "molecule/tabs", "organism/data-table"]
+  },
+  {
+    "id": "page/admin-dashboard",
+    "category": "page",
+    "type": "layout",
+    "depends_on": ["molecule/stat-card", "molecule/tabs", "organism/data-table"]
+  }
+]

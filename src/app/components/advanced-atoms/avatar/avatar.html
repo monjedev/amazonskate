@@ -1,0 +1,7 @@
+<div class="avatar" [class]="'avatar--' + size()">
+  @if (src()) {
+    <img [src]="src()" alt="{{ name() }}" />
+  } @else {
+    <span>{{ initials() }}</span>
+  }
+</div>

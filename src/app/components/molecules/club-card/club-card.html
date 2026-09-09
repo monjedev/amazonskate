@@ -1,0 +1,32 @@
+<div class="club-card">
+  <div class="club-image">
+    <img [src]="club().logo" [alt]="club().name" />
+    @if (club().tag) {
+      <app-badge [label]="club().tag!" variant="primary" />
+    }
+    <app-rating [value]="club().rating" [readonly]="true" />
+  </div>
+
+  <div class="club-info">
+    <h3 class="name">{{ club().name }}</h3>
+    <p class="location">📍 {{ club().location }}</p>
+    <p class="members">👥 {{ club().members }} exploradores</p>
+
+    <div class="specialties">
+      @for (specialty of club().specialties; track specialty) {
+        <app-tag [label]="specialty" />
+      }
+    </div>
+
+    <p class="description">{{ club().description }}</p>
+
+    <div class="achievements">
+      <strong>Logros destacados:</strong>
+      @for (achievement of club().achievements; track achievement) {
+        <p>🏆 {{ achievement }}</p>
+      }
+    </div>
+
+    <app-btn color="primary" style="solid" (btnClick)="explore.emit(club().id)"> Explorar </app-btn>
+  </div>
+</div>

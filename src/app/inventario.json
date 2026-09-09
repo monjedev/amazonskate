@@ -1,0 +1,306 @@
+[
+  {
+    "id": "atom/button",
+    "name": "Botón",
+    "category": "atom",
+    "type": "interactive",
+    "status": "stable",
+    "framework": "Angular 17+ (Standalone, OnPush, Signals)",
+    "variants": ["primary", "outline", "dark", "ghost"],
+    "states": ["default", "hover", "active", "focus", "disabled", "loading"],
+    "dependencies": ["mixins/btn-primary", "mixins/btn-dark"]
+  },
+  {
+    "id": "atom/input-field",
+    "name": "Input de Texto",
+    "category": "atom",
+    "type": "input",
+    "status": "stable",
+    "framework": "Angular 17+ (Signals, ViewChild, ControlValueAccessor)",
+    "variants": ["text", "email", "password"],
+    "states": ["default", "focus", "error", "disabled"],
+    "dependencies": ["mixins/glass-input", "tokens/color/negative"]
+  },
+  {
+    "id": "atom/badge",
+    "name": "Insignia / Etiqueta",
+    "category": "atom",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17+ (Standalone, OnPush)",
+    "variants": ["neutral", "primary", "success", "danger", "warning"]
+  },
+  {
+    "id": "atom/checkbox",
+    "name": "Casilla de Verificación",
+    "category": "atom",
+    "type": "input",
+    "status": "stable",
+    "framework": "Angular 17+ (Standalone, OnPush, Signals)",
+    "states": ["default", "checked", "disabled", "focus"]
+  },
+  {
+    "id": "atom/tooltip",
+    "name": "Tooltip",
+    "category": "atom",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17.1+ (Signals, viewChild, Control Flow)",
+    "variants": ["top", "bottom", "left", "right"],
+    "states": ["hidden", "visible"]
+  },
+  {
+    "id": "atom/popover",
+    "name": "Popover",
+    "category": "atom",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17+ (Signals, Control Flow)",
+    "variants": ["top", "bottom", "left", "right"]
+  },
+  {
+    "id": "atom/slider",
+    "name": "Slider / Rango",
+    "category": "atom",
+    "type": "input",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input, output)",
+    "dependencies": ["tokens/space", "tokens/color/brand"]
+  },
+  {
+    "id": "atom/stepper",
+    "name": "Stepper",
+    "category": "atom",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17+ (input, @for)"
+  },
+  {
+    "id": "atom/price-display",
+    "name": "Precio",
+    "category": "atom",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input.required, computed)",
+    "dependencies": ["tokens/color/negative"]
+  },
+  {
+    "id": "atom/rating",
+    "name": "Rating",
+    "category": "atom",
+    "type": "interactive",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input, output, signal)"
+  },
+  {
+    "id": "atom/progress-bar",
+    "name": "Barra de Progreso",
+    "category": "atom",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input.required)"
+  },
+  {
+    "id": "molecule/form-field",
+    "name": "Form Field",
+    "category": "molecule",
+    "type": "input",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input, @if)",
+    "depends_on": ["atom/input-field", "tokens/color/negative"]
+  },
+  {
+    "id": "molecule/search-bar",
+    "name": "Search Bar",
+    "category": "molecule",
+    "type": "input",
+    "status": "stable",
+    "framework": "Angular 17.1+ (signal, output)"
+  },
+  {
+    "id": "molecule/product-card",
+    "name": "Product Card",
+    "category": "molecule",
+    "type": "container",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input.required)",
+    "depends_on": ["atom/badge", "atom/price-display", "atom/button"],
+    "instances": ["Tienda/Listado", "Tienda/Destacados"]
+  },
+  {
+    "id": "molecule/user-card",
+    "name": "User Card",
+    "category": "molecule",
+    "type": "container",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input.required)",
+    "depends_on": ["atom/badge", "atom/button"]
+  },
+  {
+    "id": "molecule/stat-card",
+    "name": "KPI Stat Card",
+    "category": "molecule",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input, signal)",
+    "depends_on": ["atom/progress-bar"]
+  },
+  {
+    "id": "molecule/nav-item",
+    "name": "Navigation Item",
+    "category": "molecule",
+    "type": "interactive",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input, output)"
+  },
+  {
+    "id": "molecule/tabs",
+    "name": "Tabs",
+    "category": "molecule",
+    "type": "interactive",
+    "status": "stable",
+    "framework": "Angular 17.1+ (signal, @for)",
+    "instances": ["Dashboard/Club"]
+  },
+
+  {
+    "id": "molecule/toast",
+    "name": "Toast Notification",
+    "category": "molecule",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17+ (Signals, @switch, standalone)",
+    "variants": ["success", "error", "warning", "info"],
+    "depends_on": ["tokens/color/negative", "tokens/color/warning"]
+  },
+  {
+    "id": "molecule/modal",
+    "name": "Modal Dialog",
+    "category": "molecule",
+    "type": "container",
+    "status": "stable",
+    "framework": "Angular 17.1+ (inject, viewChild, @if)",
+    "states": ["open", "closed"]
+  },
+  {
+    "id": "molecule/drawer",
+    "name": "Drawer / Side Panel",
+    "category": "molecule",
+    "type": "container",
+    "status": "stable",
+    "framework": "Angular 17+ (input, @if)",
+    "variants": ["left", "right"]
+  },
+  {
+    "id": "molecule/dropdown",
+    "name": "Dropdown Menu",
+    "category": "molecule",
+    "type": "interactive",
+    "status": "stable",
+    "framework": "Angular 17+ (signals, @for)"
+  },
+  {
+    "id": "molecule/breadcrumb",
+    "name": "Breadcrumb",
+    "category": "molecule",
+    "type": "display",
+    "status": "stable",
+    "framework": "Angular 17+ (@for)"
+  },
+  {
+    "id": "molecule/pagination",
+    "name": "Pagination",
+    "category": "molecule",
+    "type": "interactive",
+    "status": "stable",
+    "framework": "Angular 17.1+ (input, output)"
+  },
+  {
+    "id": "organism/navbar",
+    "name": "Navbar",
+    "category": "organism",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["molecule/nav-item", "atom/button"]
+  },
+  {
+    "id": "organism/footer",
+    "name": "Footer",
+    "category": "organism",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["atoms/inputs"]
+  },
+  {
+    "id": "organism/filter-bar",
+    "name": "Filter Bar",
+    "category": "organism",
+    "type": "input",
+    "status": "stable",
+    "depends_on": ["atoms/chip"]
+  },
+  {
+    "id": "organism/data-table",
+    "name": "Data Table",
+    "category": "organism",
+    "type": "display",
+    "status": "stable",
+    "depends_on": ["atoms/button"]
+  },
+  {
+    "id": "organism/login-form",
+    "name": "Login Form",
+    "category": "organism",
+    "type": "form",
+    "status": "stable",
+    "depends_on": ["molecule/form-field", "atom/input-field", "atom/checkbox"]
+  },
+  {
+    "id": "page/landing",
+    "name": "Landing Page",
+    "category": "page",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["organism/navbar", "organism/footer", "atom/button"]
+  },
+  {
+    "id": "page/shop",
+    "name": "Shop Page",
+    "category": "page",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["organism/filter-bar", "molecule/product-card"]
+  },
+  {
+    "id": "page/athletes",
+    "name": "Athletes Page",
+    "category": "page",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["organism/filter-bar", "molecule/user-card"]
+  },
+  {
+    "id": "page/events",
+    "name": "Events Page",
+    "category": "page",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["organism/navbar", "atom/button"]
+  },
+  {
+    "id": "page/athlete-dashboard",
+    "name": "Athlete Dashboard",
+    "category": "page",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["molecule/stat-card", "atom/progress-bar"]
+  },
+  {
+    "id": "page/club-dashboard",
+    "name": "Club Dashboard",
+    "category": "page",
+    "type": "layout",
+    "status": "stable",
+    "depends_on": ["molecule/stat-card", "molecule/tabs", "organism/data-table", "molecule/drawer"]
+  }
+]

@@ -1,0 +1,20 @@
+@use '../../../../styles/mixins' as *;
+
+.contact-form {
+  @include glass-effect;
+  background: var(--color-background-glass);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  h3 { color: var(--color-foreground-on-glass); }
+  p { color: var(--color-foreground-muted); font-size: var(--text-size-sm); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+
+  .glass-input {
+    @include glass-input;
+    border-radius: var(--radius-md);
+    &.textarea { min-height: 100px; }
+  }
+}

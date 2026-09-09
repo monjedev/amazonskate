@@ -1,0 +1,10 @@
+<span class="tooltip-trigger">
+  <ng-content />
+</span>
+
+@if (isVisible()) {
+  <div #tooltipContent class="tooltip-content" [class]="'tooltip--' + position()">
+    {{ message() }}
+    <span class="arrow" aria-hidden="true"></span>
+  </div>
+}

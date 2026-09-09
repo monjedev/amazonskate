@@ -1,0 +1,37 @@
+<section class="hero">
+  <h1>Conoce a los <span class="highlight">Guerreros de las Ruedas</span></h1>
+  <p>Cada atleta es una leyenda viviente en la selva del patinaje. Descubre sus historias.</p>
+</section>
+
+<section class="section">
+  <h2 class="title">👑 Trono de Campeones</h2>
+  <div class="grid">
+    @for (user of champions; track user.id) {
+      <app-user-card [user]="user" (profile)="onProfile($event)" />
+    }
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="title">🌿 Todos los Exploradores</h2>
+  <div class="grid">
+    @for (user of explorers; track user.id) {
+      <app-user-card [user]="user" (profile)="onProfile($event)" />
+    }
+  </div>
+</section>
+@if (isModalOpen() && selectedAthlete()) {
+  <app-modal
+    [title]="selectedAthlete()?.name || ''"
+    [isOpen]="isModalOpen()"
+    (closed)="closeModal()"
+  >
+    <p>{{ selectedAthlete()?.description }}</p>
+    <p><strong>Club:</strong> {{ selectedAthlete()?.club }}</p>
+    <p><strong>Puntos:</strong> {{ selectedAthlete()?.points }}</p>
+
+    <ng-container footer>
+      <app-btn color="secondary" style="outline", (btnClick)="closeModal()">Cerrar</app-btn>
+    </ng-container>
+  </app-modal>
+}

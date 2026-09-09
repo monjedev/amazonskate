@@ -1,0 +1,7 @@
+ <div class="price-wrapper">
+      <span class="currency">{{ currency() }}</span>
+      <span class="value">{{ price() }}</span>
+      @if (originalPrice() && originalPrice()! > price()) {
+        <span class="original-price">{{ currency() }}{{ originalPrice() }}</span>
+      }
+    </div>

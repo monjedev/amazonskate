@@ -1,0 +1,32 @@
+@use '../../../../styles/mixins' as *;
+
+.stat-card {
+  @include glass-effect;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .label {
+    color: var(--color-foreground-on-glass);
+    font-size: var(--text-size-sm);
+  }
+  .icon {
+    font-size: var(--text-size-xl);
+    opacity: 0.6;
+  }
+  .value {
+    color: var(--color-brand-300);
+    font-size: var(--text-size-xl);
+    font-weight: 700;
+  }
+  .subtext {
+    color: var(--color-foreground-muted);
+    font-size: var(--text-size-xs);
+  }
+}

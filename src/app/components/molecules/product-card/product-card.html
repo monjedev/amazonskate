@@ -1,0 +1,29 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product().image" [alt]="product().title" />
+    <div class="product-badges">
+      @if (product().tag) { <app-badge [label]="product().tag!" variant="primary" /> }
+      @if (product().discount) { <app-badge [label]="'-' + product().discount + '%'" variant="danger" /> }
+    </div>
+    <app-badge [label]="product().stock === 'inStock' ? 'En Stock' : 'Agotado'" [variant]="product().stock === 'inStock' ? 'success' : 'danger'" />
+  </div>
+
+  <div class="product-info">
+    <span class="category">{{ product().category }}</span>
+    <h3 class="title">{{ product().title }}</h3>
+    <p class="brand">{{ product().brand }}</p>
+    <app-rating [value]="product().rating" [readonly]="true" />
+    <span class="reviews">({{ product().reviews }} reviews)</span>
+    <p class="description">{{ product().description }}</p>
+
+    <app-price-display [price]="product().price" />
+
+    <app-btn
+      [disabled]="product().stock === 'outOfStock'"
+      color="primary"
+      style="solid"
+      (btnClick)="buy.emit(product())">
+      {{ product().stock === 'inStock' ? 'Adquirir' : 'Agotado' }}
+    </app-btn>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="popover-container">
+  <div class="popover-trigger" (click)="toggle()">
+    <ng-content select="[trigger]" />
+</div>
+    @if (isOpen()) {
+      <div
+        class="popover-panel"
+        [class.top]="position() === 'top'"
+        [class.bottom]="position() === 'bottom'"
+        [class.left]="position() === 'left'"
+        [class.right]="position() === 'right'"
+      >
+        <ng-content select="[content]" />
+      </div>
+    }
+  </div>

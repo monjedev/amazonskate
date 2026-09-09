@@ -1,0 +1,40 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3xs);
+
+  font-size: var(--text-size-sm);
+
+  .crumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+
+    color: var(--color-foreground-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-brand-300);
+    }
+  }
+
+  .crumb-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .separator {
+    color: var(--color-foreground-muted);
+    user-select: none;
+  }
+
+  .crumb-current {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+
+    color: var(--color-foreground-on-glass);
+    font-weight: 500;
+  }
+}

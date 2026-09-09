@@ -1,0 +1,7 @@
+<div class="progress-track">
+  <div class="progress-fill" [style.width.%]="normalizedValue()">
+  </div>
+</div>
+    @if (showLabel()) {
+      <span class="progress-label"> {{ normalizedValue() }}% </span>
+    }

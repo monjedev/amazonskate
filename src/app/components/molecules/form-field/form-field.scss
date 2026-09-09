@@ -1,0 +1,31 @@
+@use '../../../../styles/mixins' as *;
+
+:host { display: block; }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+
+  &__label {
+    color: var(--color-foreground-on-glass);
+    font-size: var(--text-size-sm);
+    font-weight: 500;
+  }
+
+  /* Estilo para cuando se proyecta el input */
+  ::ng-deep .input {
+    @include glass-input;
+    width: 100%;
+  }
+
+  &__hint {
+    color: var(--color-foreground-muted);
+    font-size: var(--text-size-xs);
+  }
+
+  &__error {
+    color: var(--color-foreground-negative);
+    font-size: var(--text-size-xs);
+  }
+}

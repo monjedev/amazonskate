@@ -1,0 +1,14 @@
+<div class="slider-wrapper">
+  <input
+    type="range"
+    [min]="min()"
+    [max]="max()"
+    [step]="step()"
+    [value]="value()"
+    (input)="onInput($event)"
+    class="slider"
+  />
+  <div class="slider-value">
+    {{ value() }}
+  </div>
+</div>

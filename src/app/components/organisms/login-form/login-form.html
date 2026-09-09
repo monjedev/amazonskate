@@ -1,0 +1,51 @@
+<div class="login-container">
+  <!-- Tarjeta de login (formulario) -->
+
+  <div class="login-card">
+    <img src="assets/logo.svg" alt="Logo" class="logo" />
+    <h3>Acceso a la Selva</h3>
+    <p>Ingresa tus credenciales para continuar tu aventura.</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-input-field
+        type="email"
+        label="Correo electrónico"
+        formControlName="email"
+        placeholder="tu@email.com"
+      />
+      <app-input-field
+        type="password"
+        label="Contraseña"
+        formControlName="password"
+        placeholder="••••••••"
+      />
+
+      <app-btn color="primary" style="solid" type="submit" [loading]="isLoading()" size="large">
+        ⚡ Ingresar
+      </app-btn>
+    </form>
+
+    <a href="#" class="forgot">¿No tienes cuenta? Únete a la expedición</a>
+  </div>
+
+  <!-- Sección de roles (demo) -->
+
+  <div class="roles-section">
+    <div class="roles-header">
+      <span class="demo-badge">⚡ Demo</span>
+      <h4>Explorar Roles</h4>
+      <p>Prueba diferentes tipos de usuario</p>
+    </div>
+    <div class="roles-list">
+      @for (role of roles; track role.id) {
+        <button class="role-btn" (click)="onRoleSelect(role)">
+          <span class="icon">{{ role.icon }}</span>
+          <span class="info">
+            <strong>{{ role.label }}</strong>
+            <small>{{ role.email }}</small>
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@use '../../../../styles/mixins' as *;
+
+.page-header { @include bg-jungle; text-align: center; padding: var(--space-2xl) var(--space-lg);
+  h1 { color: white; font-size: var(--text-size-hero); .highlight { color: var(--color-brand-300); } }
+  p { color: var(--color-foreground-muted); margin-bottom: var(--space-lg); }
+  app-input { display: block; max-width: 400px; margin: 0 auto; }
+}
+
+.shop-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); padding: var(--space-xl);
+  @media (min-width: 900px) { grid-template-columns: 280px 1fr; }
+}
+
+.products-grid { @include grid-responsive(); }
+.toast-overlay {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  z-index: 1001;
+}

@@ -1,0 +1,186 @@
+@use './tokens' as *;
+/* =========================================
+   CAPAS / EFECTOS VISUALES (LAYERS)
+   ========================================= */
+
+/* Fondo de Selva (Global) */
+@mixin bg-jungle {
+  background-image: url('/assets/images/bg-jungle.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Capa de Vidrio (Glassmorphism) para Tarjetas y Paneles */
+@mixin glass-effect {
+  background: var(--color-background-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-outline-glass);
+  border-radius: var(--radius-md);
+}
+
+/* Capa Oscura (Overlay) para Hero y Modales */
+@mixin dark-overlay {
+  background: linear-gradient(180deg, rgba(10, 43, 38, 0.7) 0%, rgba(10, 43, 38, 0.9) 100%);
+}
+
+/* =========================================
+   LAYOUTS RESPONSIVE
+   ========================================= */
+
+/* Grid de Tarjetas (1 col en móvil, N columnas en desktop) */
+@mixin grid-responsive($min: 280px) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  }
+}
+
+/* Botones Apilados en Móvil (Para CTAs) */
+@mixin stacked-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* =========================================
+   ELEMENTOS BASE (INPUTS & CHIPS)
+   ========================================= */
+
+/* Input de Vidrio */
+@mixin glass-input {
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-full);
+  color: var(--color-foreground-on-glass);
+  padding: var(--space-sm) var(--space-md);
+  width: 100%;
+  font-family: inherit;
+  font-size: var(--text-size-md);
+
+  &::placeholder {
+    color: var(--color-text-placeholder);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-outline-focus);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+/* Chips / Píldoras de Filtro */
+@mixin filter-chip {
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-background-glass);
+  border: 1px solid var(--color-outline-glass);
+  color: var(--color-foreground-on-glass);
+  font-size: var(--text-size-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+
+  &:hover {
+    background: var(--color-background-input);
+  }
+
+  &.active {
+    background: var(--color-background-primary);
+    border-color: var(--color-background-primary);
+    color: var(--color-foreground-primary);
+    font-weight: var(--text-weight-semibold);
+  }
+}
+
+/* =========================================
+   MATRIZ DE BOTONES (FIGMA)
+   ========================================= */
+
+/* Estructura Base del Botón */
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xs);
+  border-radius: var(--radius-sm);
+  font-weight: var(--text-weight-semibold);
+  font-family: inherit;
+  font-size: var(--text-size-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+  border: 1px solid transparent;
+  line-height: 1;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+/* Matriz Dinámica de Colores y Estilos */
+@mixin btn-variant($color, $style) {
+
+  /* Estilos Sólidos */
+  @if $style == 'solid' {
+    background: var(--color-background-#{$color});
+    color: var(--color-foreground-#{$color});
+    border-color: var(--color-outline-#{$color});
+
+    &:hover:not(:disabled) {
+      background: var(--color-background-#{$color}-hover);
+      box-shadow: var(--shadow-electric);
+    }
+  }
+
+  /* Estilos Suaves (Soft) */
+  @else if $style == 'soft' {
+    background: var(--color-background-#{$color}-soft);
+    color: var(--color-foreground-#{$color}-soft);
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background: var(--color-background-#{$color});
+      color: var(--color-foreground-#{$color});
+    }
+  }
+
+  /* Estilos de Contorno (Outline) */
+  @else if $style == 'outline' {
+    background: transparent;
+    color: var(--color-foreground-#{$color});
+    border-color: var(--color-outline-#{$color});
+
+    &:hover:not(:disabled) {
+      background: var(--color-background-#{$color}-soft);
+    }
+  }
+
+  /* Estilos Fantasma (Ghost) */
+  @else if $style == 'ghost' {
+    background: transparent;
+    color: var(--color-foreground-#{$color});
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background: var(--color-background-#{$color}-soft);
+    }
+  }
+}

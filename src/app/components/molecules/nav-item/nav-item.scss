@@ -1,0 +1,29 @@
+:host { display: block; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  color: var(--color-foreground-muted);
+  font-size: var(--text-size-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-standard);
+
+  &:hover {
+    background: var(--color-background-input);
+    color: var(--color-foreground-on-glass);
+  }
+
+  &.is-active {
+    background: var(--color-background-primary);
+    color: var(--color-foreground-on-primary);
+    font-weight: 600;
+
+    .nav-icon { color: var(--color-foreground-on-primary); }
+  }
+
+  .nav-icon { font-size: var(--text-size-lg); }
+}

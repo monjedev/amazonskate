@@ -1,0 +1,27 @@
+<div class="pagination">
+  <button
+    class="page-btn"
+    [disabled]="currentPage() === 1"
+    (click)="go(currentPage() - 1)"
+  >
+    ‹
+  </button>
+
+  @for (page of pages(); track page) {
+    <button
+      class="page-btn"
+      [class.is-active]="page === currentPage()"
+      (click)="go(page)"
+    >
+      {{ page }}
+    </button>
+  }
+
+  <button
+    class="page-btn"
+    [disabled]="currentPage() === totalPages()"
+    (click)="go(currentPage() + 1)"
+  >
+    ›
+  </button>
+</div>

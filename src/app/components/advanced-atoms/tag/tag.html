@@ -1,0 +1,6 @@
+<span class="tag" [class.active]="active()" (click)="selected.emit()">
+  {{ label() }}
+  @if (removable()) {
+    <span class="tag-close" (click)="$event.stopPropagation(); removed.emit()">×</span>
+  }
+</span>

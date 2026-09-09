@@ -1,0 +1,30 @@
+<div class="dashboard">
+  <header class="header">
+    <h1>Administrador Sistema</h1>
+    <p>Gestiona toda la plataforma desde aquí</p>
+  </header>
+
+  <div class="stats-grid">
+    @for (kpi of kpis; track kpi.label) {
+      <app-stat-card [kpi]="kpi" />
+    }
+  </div>
+
+  <div class="panel">
+    <app-tabs
+      [tabs]="['Clubes', 'Usuarios', 'Eventos', 'Analytics']"
+      (tabChange)="
+        activeTab.set(
+          $event === 0
+            ? 'Clubes'
+            : $event === 1
+              ? 'Usuarios'
+              : $event === 2
+                ? 'Eventos'
+                : 'Analytics'
+        )
+      "
+    />
+    <p>{{ activeTab() }}</p>
+  </div>
+</div>
